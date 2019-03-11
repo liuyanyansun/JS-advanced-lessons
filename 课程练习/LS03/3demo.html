@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>js</title>
+</head>
+<body>
+
+</body>
+<script>
+	//对当前页面的所有JavaScript都使用严格模式
+	// 'use strict'
+
+	//ES ECMAScript简写 语言标准
+	//ES5 ES6这是ECMAScript最主流的两个版本
+	//JavaScript在ES5标准下没有块作用域
+	if (false) {
+		var a = 1;
+	}
+	// a=2;
+	console.log(a);
+
+	for (var i =0; i<3; i++) {
+
+	}
+	console.log(i);
+
+	function fn1() {
+		//对函数内部代码应用严格模式
+		'use strict'
+	}
+
+	//如果变量不适用var声明，会自动提升为全局变量
+	//最大的缺陷：全局变量
+	function fn2(){
+		// 'use strict'
+		username = "zhangsan"
+	}
+	fn2();
+	console.log(username);
+
+
+	function fn3(){
+		//非严格模式下，普通函数的内部this指向window对象
+		//严格模式下，this指向undefined
+		'use strict'
+		console.log(this);
+	}
+	fn3();
+
+	function fn4(){
+		'use strict'
+		var result = (this === undefined ? true:false);
+		return result;
+	}
+	console.log(fn4());
+
+	//字符串的length是一个只读属性
+	var str = "abcdef";
+	str.length = 1;
+	console.log(str.length);
+
+	//需要注意：switch case 是进行值和类型的判断，不会发生隐式类型转换 
+	//如果没有break那么后面就会全部的输出
+	var index = 1;//var index = '1';
+	switch(index){
+		case 1:
+			console.log("星期一");
+			break;
+		case 2:
+			console.log("星期二");
+			break;
+		case 3:
+			console.log("星期三");
+			break;
+		case 4:
+			console.log("星期四");
+			break;
+		case 5:
+			console.log("星期五");
+			break;
+		case 6:
+		case 7:
+			console.log("休息日");
+			break;
+		default:
+			console.log("均不符合");
+			break;
+	}
+	var obj1 = {"username": "zhangsan", "age":20};
+	obj1._proto_.sex = "male";
+	for(var i in obj1){
+		console.log(i,obj1[i]);
+	}
+
+	var arr1
+</script>
+</html>
